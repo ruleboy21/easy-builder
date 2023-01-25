@@ -1,0 +1,29 @@
+{
+    "name": "ruleboy21/easy-builder",
+    "description": "A lightweight, dependency free, framework agnostic query builder for PHP.",
+    "homepage": "https://github.com/ruleboy21/easy-builder",
+    "keywords": [
+        "query builder",
+        "sql",
+        "database",
+        "mysql",
+        "postgresql",
+        "sqlite"
+    ],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Emmanuel Opoku Addo",
+            "email": "",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": "^8.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "EasyBuilder\\": "src"
+        }
+    }
+}

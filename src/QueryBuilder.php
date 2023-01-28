@@ -173,6 +173,13 @@ class QueryBuilder
     ];
 
     /**
+     * The PDO fetch parameters to use
+     *
+     * @var array
+     */
+    protected $fetchModeParams;
+
+    /**
      * Class constructor.
      *
      * @return void
@@ -1654,6 +1661,18 @@ class QueryBuilder
     }
 
     /**
+     * Set the fetch mode
+     *
+     * @param  mixed ...$params
+     * @return $this
+     */
+    public function setFetchMode(mixed ...$params)
+    {
+        $this->fetchModeParams = $params;
+        return $this;
+    }
+
+    /**
      * Execute the query as a "select" statement.
      * Return all selected columns and matched rows.
      * 
@@ -1669,6 +1688,9 @@ class QueryBuilder
 
         // execute query and return fetched data
         $stmt = $this->statement($this->toSql(), $this->getBindings());
+        if (isset($this->fetchModeParams)) {
+            $stmt->setFetchMode(...$this->fetchModeParams);
+        }
         return $stmt->fetchAll();
     }
 

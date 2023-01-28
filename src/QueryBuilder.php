@@ -1688,9 +1688,7 @@ class QueryBuilder
 
         // execute query and return fetched data
         $stmt = $this->statement($this->toSql(), $this->getBindings());
-        if (isset($this->fetchModeParams)) {
-            $stmt->setFetchMode(...$this->fetchModeParams);
-        }
+        if (isset($this->fetchModeParams)) $stmt->setFetchMode(...$this->fetchModeParams);
         return $stmt->fetchAll();
     }
 
